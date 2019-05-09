@@ -21,6 +21,9 @@
   <!-- iCheck -->
   <link rel="stylesheet" href="<?= base_url('assets/vendor/iCheck/flat/blue.css') ?>">
 
+  <!-- Pace style -->
+  <link rel="stylesheet" href="<?= base_url('assets/vendor/pace/pace.min.css') ?>">
+
   <!-- Theme style -->
   <link rel="stylesheet" href="<?= base_url('assets/css/AdminLTE.min.css') ?>">
   <link rel="stylesheet" href="<?= base_url('assets/css/skins/skin-blue.min.css') ?>">
@@ -201,22 +204,20 @@
             <span>Dashboard</span>
           </a>
         </li>
-        <li class="treeview active">
-          <a href="#">
+        <li>
+          <a href="<?= base_url('dashboard/post/all') ?>">
             <i class="fa fa-link"></i>
             <span>Post</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
           </a>
-          <ul class="treeview-menu">
-            <li class="active"><a href="#">All</a></li>
-            <li><a href="#">Draf</a></li>
-            <li><a href="#">Publish</a></li>
-          </ul>
         </li>
         <li>
-          <a href="#">
+          <a href="<?= base_url('dashboard/user') ?>">
+            <i class="fa fa-link"></i>
+            <span>User</span>
+          </a>
+        </li>
+        <li>
+          <a href="<?= base_url('dashboard/setting') ?>">
             <i class="fa fa-link"></i>
             <span>Setting</span>
           </a>

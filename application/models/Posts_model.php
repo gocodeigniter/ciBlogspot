@@ -20,10 +20,10 @@ class Posts_model extends CI_Model {
       $this->db->from('posts');
       $this->db->join('users', 'users.id = posts.user_id', 'left');
 
+      $this->db->where_not_in('trash', 1);
       $this->db->order_by('datetime', 'DESC');
 
       $query = $this->db->get();
-
 
       return $query->result_array();
    }
@@ -43,7 +43,6 @@ class Posts_model extends CI_Model {
 
       $query = $this->db->get();
 
-
       return $query->result_array();
    }
 
@@ -61,7 +60,6 @@ class Posts_model extends CI_Model {
       $this->db->order_by('datetime', 'DESC');
 
       $query = $this->db->get();
-
 
       return $query->result_array();
    }
@@ -81,7 +79,6 @@ class Posts_model extends CI_Model {
 
       $query = $this->db->get();
 
-
       return $query->result_array();
    }
 
@@ -99,7 +96,6 @@ class Posts_model extends CI_Model {
       $this->db->order_by('datetime', 'DESC');
 
       $query = $this->db->get();
-
 
       return $query->result_array();
    }

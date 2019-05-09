@@ -5,7 +5,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'Post';
 
 // Dashboard Routes
-$route['dashboard/post/(:any)'] = 'dashboard/posts/$1';
+$route['dashboard/user'] = 'dashboard/users';
+$route['dashboard/user/detail'] = 'dashboard/user_detail';
+
+$route['dashboard/post'] = 'dashboard/posts';
+$route['dashboard/post/create'] = 'dashboard/posts_create';
+$route['dashboard/post/publish'] = 'dashboard/posts_publish';
+$route['dashboard/post/drafts'] = 'dashboard/posts_drafts';
+$route['dashboard/post/favorites'] = 'dashboard/posts_favorites';
+$route['dashboard/post/trash'] = 'dashboard/posts_trash';
+
+$route['dashboard/setting'] = 'dashboard/settings';
 
 // Post Routes
 $route['post/pdf'] = 'post/pdf';

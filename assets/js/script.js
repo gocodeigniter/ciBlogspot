@@ -103,6 +103,84 @@ $(document).ready(function() {
     }
   });
 
+  $(document).ajaxComplete(function() {
+    $('.mailbox-messages input[type="checkbox"]').iCheck({
+      checkboxClass: 'icheckbox_flat-blue',
+      radioClass: 'iradio_flat-blue'
+    });
+
+    //Enable check and uncheck all functionality
+    $(".checkbox-toggle").click(function () {
+      var clicks = $(this).data('clicks');
+      if (clicks) {
+        //Uncheck all checkboxes
+        $(".mailbox-messages input[type='checkbox']").iCheck("uncheck");
+        $(".fa", this).removeClass("fa-check-square-o").addClass('fa-square-o');
+      } else {
+        //Check all checkboxes
+        $(".mailbox-messages input[type='checkbox']").iCheck("check");
+        $(".fa", this).removeClass("fa-square-o").addClass('fa-check-square-o');
+      }
+      $(this).data("clicks", !clicks);
+    });
+
+    //Handle starring for glyphicon and font awesome
+    $(".mailbox-star").click(function (e) {
+      e.preventDefault();
+      //detect type
+      var $this = $(this).find("a > i");
+      var glyph = $this.hasClass("glyphicon");
+      var fa = $this.hasClass("fa");
+
+      //Switch states
+      if (glyph) {
+        $this.toggleClass("glyphicon-star");
+        $this.toggleClass("glyphicon-star-empty");
+      }
+
+      if (fa) {
+        $this.toggleClass("fa-star");
+        $this.toggleClass("fa-star-o");
+      }
+    });
+  });
+
   // CKEDITOR
-  CKEDITOR.replace( 'textarea' );
+  if ( ($('textarea')).length > 0 ){
+     CKEDITOR.replace( 'textarea' );
+  }
+
+  // PACE JS
+  $(document).ajaxStart(function () {
+    Pace.restart()
+  })
+
+  $('.ajax.post-publish').click(function () {
+    $.ajax({
+      url: 'post/publish', success: function (result) {
+        $('.post-content').html(result)
+      }
+    })
+  })
+  $('.ajax.post-drafts').click(function () {
+    $.ajax({
+      url: 'post/drafts', success: function (result) {
+        $('.post-content').html(result)
+      }
+    })
+  })
+  $('.ajax.post-favorites').click(function () {
+    $.ajax({
+      url: 'post/favorites', success: function (result) {
+        $('.post-content').html(result)
+      }
+    })
+  })
+  $('.ajax.post-trash').click(function () {
+    $.ajax({
+      url: 'post/trash', success: function (result) {
+        $('.post-content').html(result)
+      }
+    })
+  })
 });

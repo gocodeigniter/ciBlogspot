@@ -79,7 +79,10 @@
 <!-- iCheck -->
 <script src="<?= base_url('assets/vendor/iCheck/icheck.min.js') ?>"></script>
 
-<!-- AdminLTE App -->
+<!-- Pace -->
+<script src="<?= base_url('assets/vendor/pace/pace.min.js') ?>"></script>
+
+<!-- AdminLTE -->
 <script src="<?= base_url('assets/js/adminlte.min.js') ?>"></script>
 
 <!-- Custom Script -->

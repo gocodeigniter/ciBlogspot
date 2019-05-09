@@ -89,7 +89,7 @@ class Post extends CI_Controller {
 
 		// Validations Form
 		$this->form_validation->set_rules('title', 'Title', 'required');
-    	$this->form_validation->set_rules('subject', 'Text', 'required');
+    $this->form_validation->set_rules('subject', 'Text', 'required');
 
 		// Check Conditions
 		if ($this->form_validation->run() == TRUE) {
