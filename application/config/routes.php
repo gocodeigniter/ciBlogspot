@@ -4,6 +4,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 // Default Routes
 $route['default_controller'] = 'Post';
 
+// Dashboard Routes
+$route['dashboard/post/(:any)'] = 'dashboard/posts/$1';
+
 // Post Routes
 $route['post/pdf'] = 'post/pdf';
 $route['post/list'] = 'post/index';

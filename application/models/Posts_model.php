@@ -10,6 +10,100 @@ class Posts_model extends CI_Model {
       $this->load->helper('url');
    }
 
+   // Get All Data Post
+   public function all()
+   {
+      $this->db->select('
+        users.name, users.username,
+        posts.id, posts.user_id, posts.title, posts.subject, posts.datetime
+      ');
+      $this->db->from('posts');
+      $this->db->join('users', 'users.id = posts.user_id', 'left');
+
+      $this->db->order_by('datetime', 'DESC');
+
+      $query = $this->db->get();
+
+
+      return $query->result_array();
+   }
+
+   // Get Data Post by Publish
+   public function findByPublish()
+   {
+      $this->db->select('
+        users.name, users.username,
+        posts.id, posts.user_id, posts.title, posts.subject, posts.datetime
+      ');
+      $this->db->from('posts');
+      $this->db->join('users', 'users.id = posts.user_id', 'left');
+
+      $this->db->where('posts.publish', 1);
+      $this->db->order_by('datetime', 'DESC');
+
+      $query = $this->db->get();
+
+
+      return $query->result_array();
+   }
+
+   // Get Data Post by Drafts
+   public function findByDrafts()
+   {
+      $this->db->select('
+        users.name, users.username,
+        posts.id, posts.user_id, posts.title, posts.subject, posts.datetime
+      ');
+      $this->db->from('posts');
+      $this->db->join('users', 'users.id = posts.user_id', 'left');
+
+      $this->db->where('posts.drafts', 1);
+      $this->db->order_by('datetime', 'DESC');
+
+      $query = $this->db->get();
+
+
+      return $query->result_array();
+   }
+
+   // Get Data Post by Favorites
+   public function findByFavorites()
+   {
+      $this->db->select('
+        users.name, users.username,
+        posts.id, posts.user_id, posts.title, posts.subject, posts.datetime
+      ');
+      $this->db->from('posts');
+      $this->db->join('users', 'users.id = posts.user_id', 'left');
+
+      $this->db->where('posts.favorites', 1);
+      $this->db->order_by('datetime', 'DESC');
+
+      $query = $this->db->get();
+
+
+      return $query->result_array();
+   }
+
+   // Get Data Post by Trash
+   public function findByTrash()
+   {
+      $this->db->select('
+        users.name, users.username,
+        posts.id, posts.user_id, posts.title, posts.subject, posts.datetime
+      ');
+      $this->db->from('posts');
+      $this->db->join('users', 'users.id = posts.user_id', 'left');
+
+      $this->db->where('posts.trash', 1);
+      $this->db->order_by('datetime', 'DESC');
+
+      $query = $this->db->get();
+
+
+      return $query->result_array();
+   }
+
    public function num_rows()
    {
       // Check Total Data in Database
