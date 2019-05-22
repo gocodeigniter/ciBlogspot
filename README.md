@@ -1,4 +1,4 @@
-# Code Igniter Blogspot by Programmer Keren
+# CodeIgniter Blogspot by Programmer Keren
 
 Tools :
 - CodeIgniter v3.1.9
